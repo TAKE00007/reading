@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'email' => 'take0007',
             'email_verified_at' => new DateTime(),
             'password' => 'lavatech',
-            'image_path' => '11',
+            #'image_path' => '11',
             'last_login_at' => new DateTime(),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),

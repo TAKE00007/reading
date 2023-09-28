@@ -7,8 +7,8 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function posts(Post $post)
     {
-        return view('posts.index')->with(['posts' => $post->getByLimit()]);
+        return view('readings.posts')->with(['posts' => $post->getByLimit()]);
     }
 }

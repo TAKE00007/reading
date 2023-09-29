@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\RecordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/posts', [PostController::class, 'posts']);
 Route::get('/top', [BookController::class, 'index']);
 Route::get('/bookshelves', [BookController::class, 'bookshelves']);
+Route::get('/mypage', [RecordController::class, 'mypage']);
 
 
 /*Route::get('/', function() {

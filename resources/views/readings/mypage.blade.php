@@ -21,9 +21,10 @@
         <div class='records'>
             @foreach ($records as $record)
                     <div class='record'>
-                        <h2 class='month_page'>{{ $record->month_page }}</h2>
-                        <p class='reading_pages'>{{ $book->reading_pages }}</p>
-                        <p class='pages'>{{ $book->pages }}</p>
+                        <h2 class='month_page'>1か月に読んだページ：{{ $record->month_page }}</h2>
+                        <p class='month'>{{ $record->month }}</p>
+                        <p class='goal'>今月の目標:{{ $record->goal }}</p>
+                        <p class='progress'>総ページ数：{{ $record->progress }}</p>
                     </div>
             @endforeach
         </div>

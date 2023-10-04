@@ -17,6 +17,12 @@ class PostController extends Controller
         return view('readings.create');
     }
     
+    public function show(Post $post)
+    {
+        return view('readings.show')->with(['post'=> $post]);
+    }
+    
+    
     public function store(Request $request, Post $post)
     {
         $input = $request['post'];

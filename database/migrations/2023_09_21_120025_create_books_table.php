@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50)->nullable(false);
             $table->integer('pages')->nullable(false);
-            $table->string('image_url',255);
-            $table->integer('reading_pages')->nullable(false);
-            $table->integer('month_progress')->nullable(false);
+            /*$table->string('image_url',255);*/
+            $table->integer('reading_pages')->nullable();
+            $table->integer('month_progress')->nullable();
             $table->timestamps();
         });
     }

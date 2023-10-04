@@ -18,15 +18,20 @@
             </nav>
         </header>
         <h1>Reading</h1>
-        <div class='posts'>
-            @foreach ($posts as $post)
-                    <div class='post'>
-                        <h2 class='title'>{{ $post->title }}</h2>
-                        <p class='body'>{{ $post->body }}</p>
-                        <p class='created_at'>{{ $post->created_at }}</p>
-                    </div>
-            @endforeach
+        <form action="/posts" method="POST">
+            @csrf
+            <div class="title">
+                <h2>Title</h2>
+                <input type="text" name="post[title]" placeholder="タイトル"/>
+            </div>
+            <div class="body">
+                <h2>Body</h2>
+                <textarea name="post[body]" placeholder="今日も一日お疲れ様でした。"></textarea>
+            </div>
+            <input type="submit" value="post"/>
+        </form>
+        <div class="footer">
+            <a href="/">戻る</a>
         </div>
-        <a href='/posts/create'>post</a>
     </body>
 </html>

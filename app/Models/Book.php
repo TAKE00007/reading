@@ -11,6 +11,18 @@ class Book extends Model
     
     public function getByLimit(int $limit_count = 10)
     {
-        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+        return $this->with('author')->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+    }
+    
+    
+    protected $fillable = [
+        'title',
+        'pages',
+        'author_id',
+    ];
+    
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
     }
 }

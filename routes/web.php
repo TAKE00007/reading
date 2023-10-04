@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/posts', [PostController::class, 'posts']);
 Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::post('/posts', [PostController::class, 'store']);
 Route::get('/top', [BookController::class, 'index']);
 Route::get('/bookshelves', [BookController::class, 'bookshelves']);

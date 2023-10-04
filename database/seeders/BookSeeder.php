@@ -19,11 +19,12 @@ class BookSeeder extends Seeder
         DB::table('books')->insert([
             'title' => 'いのちの車窓から',
             'pages' => '200',
-            'image_url' => 'title',
+            /*'image_url' => 'title',*/
             'reading_pages' => '100',
             'month_progress' => '50',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'author_id' => '1',
         ]);
     }
 }

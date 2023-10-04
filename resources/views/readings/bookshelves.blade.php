@@ -26,6 +26,14 @@
                         <p class='pages'>{{ $book->pages }}</p>
                     </div>
             @endforeach
+            <div class="author">
+                <h2>Author</h2>
+                <select name="book[author_id]">
+                    @foreach($authors as $author)
+                        <option value="{{ $author->id }}">{{ $author->name }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
     </body>
 </html>

@@ -32,11 +32,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 Route::get('/posts', [PostController::class, 'posts']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
 Route::get('/top', [BookController::class, 'index']);
 Route::get('/bookshelves', [BookController::class, 'bookshelves']);
 Route::get('/mypage', [RecordController::class, 'mypage']);
-
+Route::get('/books/add', [BookController::class, 'addbooks']);
+Route::get('/books', [BookController::class, 'store']);
 
 /*Route::get('/', function() {
     return view('posts.index');

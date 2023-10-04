@@ -11,4 +11,16 @@ class PostController extends Controller
     {
         return view('readings.posts')->with(['posts' => $post->getByLimit()]);
     }
+    
+    public function create()
+    {
+        return view('readings.create');
+    }
+    
+    public function store(Request $request, Post $post)
+    {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('posts/' . $post->id);
+    }
 }

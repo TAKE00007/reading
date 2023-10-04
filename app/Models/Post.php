@@ -14,4 +14,9 @@ class Post extends Model
         //updated_atで降順に並べたあとlimitで件数制限をかける
         return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
+    
+    protected $fillable = [
+        'title',
+        'body',
+    ];
 }

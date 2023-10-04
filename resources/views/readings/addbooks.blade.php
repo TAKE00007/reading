@@ -18,15 +18,21 @@
             </nav>
         </header>
         <h1>Reading</h1>
-        <div class='posts'>
-            @foreach ($posts as $post)
-                    <div class='post'>
-                        <h2 class='title'>{{ $post->title }}</h2>
-                        <p class='body'>{{ $post->body }}</p>
-                        <p class='created_at'>{{ $post->created_at }}</p>
-                    </div>
-            @endforeach
-        </div>
-        <a href='/posts/create'>post</a>
+        <form action="/books" method="BOOK">
+            @csrf
+            <div class="titile">
+                <h2>Title</h2>
+                <input type="text" name="book[title]" placeholder="タイトル"/>
+            </div>
+            <div class="author">
+                <h2>Author</h2>
+                <input type='text' name="author[name]" placeholder="著者"/>
+            </div>
+            <div class="page">
+                <h2>Page</h2>
+                <input type="text" name="book[pages]" placeholder="ページ数"/>
+            </div>
+            <input type="submit" value="store"/>
+        </form>
     </body>
 </html>

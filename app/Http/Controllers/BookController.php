@@ -41,5 +41,8 @@ class BookController extends Controller
         return redirect('/bookshelves/');
     }
     
-    
+    public function bookdetail(Book $book)
+    {
+        return view('readings.bookdetail')->with(['book' => $book]);
+    }
 }

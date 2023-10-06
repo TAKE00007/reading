@@ -10,10 +10,18 @@
         <header>
             <nav>
                 <ul class="global-nav">
-                    <li>Timeline</li>
-                    <li>Bookshelves</li>
-                    <li>Mypage</li>
-                    <li>add books</li>
+                    <li>
+                        <a href="/posts">Timeline</a>
+                    </li>
+                    <li>
+                        <a href="/books/bookshelves">bookshelves</a>
+                    </li>
+                    <li>
+                        <a href="/books/mypage">mypage</a>
+                    </li>
+                    <li>
+                        <a href="/books/add">addbooks</a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -22,18 +30,11 @@
             @foreach ($books as $book)
                     <div class='bookshelves'>
                         <h2 class='title'>{{ $book->title }}</h2>
-                        <p class='reading_pages'>{{ $book->reading_pages }}</p>
-                        <p class='pages'>{{ $book->pages }}</p>
+                        <p class='reading_pages'>読んだページ:{{ $book->reading_pages }}</p>
+                        <p class='pages'>ページ数:{{ $book->pages }}</p>
+                        <p class='author'>著者:{{ $book->author->name }}</p>
                     </div>
             @endforeach
-            <div class="author">
-                <h2>Author</h2>
-                <select name="book[author_id]">
-                    @foreach($authors as $author)
-                        <option value="{{ $author->id }}">{{ $author->name }}</option>
-                    @endforeach
-                </select>
-            </div>
         </div>
     </body>
 </html>

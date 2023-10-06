@@ -10,10 +10,18 @@
         <header>
             <nav>
                 <ul class="global-nav">
-                    <li>Timeline</li>
-                    <li>Bookshelves</li>
-                    <li>Mypage</li>
-                    <li>add books</li>
+                    <li>
+                        <a href="/posts">Timeline</a>
+                    </li>
+                    <li>
+                        <a href="/books/bookshelves">bookshelves</a>
+                    </li>
+                    <li>
+                        <a href="/books/mypage">mypage</a>
+                    </li>
+                    <li>
+                        <a href="/books/add">addbooks</a>
+                    </li>
                 </ul>
             </nav>
         </header>

@@ -27,12 +27,18 @@ class BookController extends Controller
     
     public function store(Request $request, Book $book, Author $author)
     {
+        $input = $request['author'];
+        $author->fill($input)->save();
+        //authorのidを$authoridとする
+        $authorid = $author->id;
+        
         $input = $request['book'];
-        $book->fill($input)->save();
-        $author = $request->author_name;
+        $book->title = $input['title'];
+        $book->author_id = $authorid;
+        $book->pages = $input['pages'];
+        $book->save();
         //フォームから入力された名前を取得
-        $
-        return redirect('/books/' . $book->id);
+        return redirect('/bookshelves/');
     }
     
     

@@ -18,4 +18,6 @@ class Author extends Model
     {
         return $this->books()->with('author')->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
+    
+    protected $fillable=['name'];
 }

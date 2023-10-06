@@ -40,6 +40,9 @@ Route::controller(BookController::class)->middleware(['auth'])->group(function()
  
     Route::get('/books/add', 'addbooks')->name('addbooks');
     Route::get('/books', 'store')->name('store');
+    // Route::get('/books/{book}/edit')->name('edit');
+    // Route::put('/books/{book}')->name('update'); 
+    Route::get('/books/{book}', 'bookdetail')->name('bookdetail');
 });
 
 Route::controller(RecordController::class)->middleware(['auth'])->group(function(){

@@ -25,18 +25,17 @@
                 </ul>
             </nav>
         </header>
-        <h1>Reading</h1>
-        <div class='bookshelves'>
-            @foreach ($books as $book)
-                    <div class='bookshelves'>
-                        <h2 class='title'>
-                            <a href="/books/{{ $book->id }}">{{ $book->title }}</a>
-                        </h2>
-                        <p class='reading_pages'>読んだページ:{{ $book->reading_pages }}</p>
-                        <p class='pages'>ページ数:{{ $book->pages }}</p>
-                        <p class='author'>著者:{{ $book->author->name }}</p>
-                    </div>
-            @endforeach
+        <h1 class="book_title">
+            {{ $book->title }}
+        </h1>
+        <div class='book_detail'>
+            <div class="reading_page">
+                <h3>本文</h3>
+                <p>{{ $book->reading_pages }}</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="/books/bookshelves">戻る</a>
         </div>
     </body>
 </html>

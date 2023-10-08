@@ -33,6 +33,7 @@
                         <p class='body'>{{ $post->body }}</p>
                         <p class='created_at'>{{ $post->created_at }}</p>
                     </div>
+                    <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></divs>
             @endforeach
         </div>
         <a href='/posts/create'>post</a>

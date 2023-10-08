@@ -26,21 +26,21 @@
             </nav>
         </header>
         <h1>Reading</h1>
-        <form action="/books/{{ $book->id }}" method="BOOK">
+        <form action="/posts/{{ $post->id }}" method="POST"><!--値を更新する際はmethodはPOSTにする-->
             @csrf
             @method('PUT')
-            <div class="book_title">
+            <div class="title">
                 <h2>Title</h2>
-                <input type="text" name="book[title]" value="{{ $book->title }}"/>
+                <input type='text' name='post[title]' value="{{ $post->title }}"/>
             </div>
             <div class="body">
-                <h2>ReadingPages</h2>
-                <input type="text" name="book[reading_pages]" value="{{ $book->reading_pages }}"/>
+                <h2>body</h2>
+                <input type='text' name='post[body]' value="{{ $post->body }}"/>
             </div>
-            <input type="submit" value="post"/>
+            <input type="submit" value="update"/>
         </form>
         <div class="footer">
-            <a href="/posts">戻る</a>
+            <a href="/bookshelves">戻る</a>
         </div>
     </body>
 </html>

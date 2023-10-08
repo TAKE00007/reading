@@ -26,18 +26,21 @@
             </nav>
         </header>
         <h1>Reading</h1>
-        <div class='bookshelves'>
-            @foreach ($books as $book)
-                    <div class='bookshelves'>
-                        <h2 class='title'>
-                            <a href="/books/{{ $book->id }}">{{ $book->title }}</a>
-                        </h2>
-                        <p class='reading_pages'>読んだページ:{{ $book->reading_pages }}</p>
-                        <p class='pages'>ページ数:{{ $book->pages }}</p>
-                        <p class='author'>著者:{{ $book->author->name }}</p>
-                    </div>
-                    <div class="edit"><a href="/books/{{ $book->id }}/edit">edit</a></div>
-            @endforeach
+        <form action="/books/{{ $book->id }}" method="POST"><!--値を更新する際はmethodはPOSTにする-->
+            @csrf
+            @method('PUT')
+            <div class="book_title">
+                <h2>Title</h2>
+                <input type='text' name='book[title]' value="{{ $book->title }}"/>
+            </div>
+            <div class="reading_pages">
+                <h2>ReadingPages</h2>
+                <input type='text' name='book[reading_pages]' value="{{ $book->reading_pages }}"/>
+            </div>
+            <input type="submit" value="update"/>
+        </form>
+        <div class="footer">
+            <a href="/bookshelves">戻る</a>
         </div>
     </body>
 </html>

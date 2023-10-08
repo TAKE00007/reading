@@ -32,7 +32,17 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts', 'posts')->name('timeline');
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/{post}', 'show')->name('show');
+    Route::put('/posts/{post}', 'update')->name('update');
+    Route::get('/posts/{post}/edit', 'edit')->name('edit');
 });
+
+Route::controller(RecordController::class)->middleware(['auth'])->group(function(){
+    Route::get('/books/mypage', 'mypage')->name('mypage');
+});
+// mypageのRoute宣言はBookControllerの前で行う
+
+
+
 
 Route::controller(BookController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
@@ -43,11 +53,10 @@ Route::controller(BookController::class)->middleware(['auth'])->group(function()
     // Route::get('/books/{book}/edit')->name('edit');
     // Route::put('/books/{book}')->name('update'); 
     Route::get('/books/{book}', 'bookdetail')->name('bookdetail');
+    Route::put('/books/{book}', 'update')->name('update');
+    Route::get('/books/{book}/edit', 'edit')->name('edit');
 });
 
-Route::controller(RecordController::class)->middleware(['auth'])->group(function(){
-    Route::get('/books/mypage', 'mypage')->name('mypage');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

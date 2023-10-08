@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use App\Models\Author;
 
@@ -44,5 +45,18 @@ class BookController extends Controller
     public function bookdetail(Book $book)
     {
         return view('readings.bookdetail')->with(['book' => $book]);
+    }
+    
+    public function edit(Book $book)
+    {
+        return view('readings.bookedit')->with(['book' => $book]);
+    }
+    
+    public function update(BookRequest $request, Book $book)
+    {
+        $input_book = $request['book'];
+        $book->fill($input_book)->save();
+        
+        return redirect('/books/' . $book->id);
     }
 }

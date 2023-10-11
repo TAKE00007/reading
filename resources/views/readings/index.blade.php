@@ -35,5 +35,6 @@
                     </div>
             @endforeach
         </div>
+        <div class="edit"><a href="/books/{{ $book->id }}/edit">edit</a></div>
     </body>
 </html>

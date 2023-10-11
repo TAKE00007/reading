@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RecordController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,10 @@ Route::controller(BookController::class)->middleware(['auth'])->group(function()
     Route::get('/books/{book}', 'bookdetail')->name('bookdetail');
     Route::put('/books/{book}', 'update')->name('update');
     Route::get('/books/{book}/edit', 'edit')->name('edit');
+});
+
+Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){
+    Route::get('/books/add', 'addbooks')->name('addbooks'); 
 });
 
 

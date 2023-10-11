@@ -18,7 +18,55 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name' => 'norvel',
+            'name' => '小説',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => '雑誌',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => 'ビジネス',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => '趣味・雑用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => '専門書',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => '学習参考書',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => '絵本',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => 'コミックス',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'name' => 'その他',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);

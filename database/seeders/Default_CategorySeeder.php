@@ -18,5 +18,14 @@ class Default_CategorySeeder extends Seeder
         DB::table('default_categories')->insert([
             'name' => '未読',
         ]);
+        
+        DB::table('default_categories')->insert([
+            'name' => '読み途中',
+        ]);
+        
+        DB::table('default_categories')->insert([
+            'name' => '既読',
+        ]);
+        
     }
 }

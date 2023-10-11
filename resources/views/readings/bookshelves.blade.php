@@ -36,6 +36,11 @@
                         <p class='pages'>ページ数:{{ $book->pages }}</p>
                         <p class='author'>著者:{{ $book->author->name }}</p>
                     </div>
+                    <div class='category'>
+                        @foreach($book->categories as $category)
+                        {{ $category->name }}
+                        @endforeach
+                    </div>
                     <div class="edit"><a href="/books/{{ $book->id }}/edit">edit</a></div>
             @endforeach
         </div>

@@ -40,6 +40,18 @@
                 <h2>Page</h2>
                 <input type="text" name="book[pages]" placeholder="ページ数"/>
             </div>
+            <div>
+                <h2>category</h2>
+                @foreach($categories as $category)
+                
+                    <label>
+                        <!--valueを'$categoryのid'に、nameを'配列名[]'に-->
+                        <input type="checkbox" value="{{ $category->id }}" name="categories_array[]">
+                            {{$category->name}}
+                        </input>
+                    </label>
+                @endforeach
+            </div>
             <input type="submit" value="store"/>
         </form>
     </body>

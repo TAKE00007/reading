@@ -34,12 +34,16 @@ class BookController extends Controller
         $authorid = $author->id;
         
         $input = $request['book'];
+        $input_categories = $request->categories_array;//categories_arrayはnameで設定
         $book->title = $input['title'];
         $book->author_id = $authorid;
         $book->pages = $input['pages'];
         $book->save();
+        
+        // attacメソッドを使って中間テーブルにデータを保存
+        $book->categories()->attach($input_categories);
         //フォームから入力された名前を取得
-        return redirect('/bookshelves/');
+        return redirect('/books/' . $book->id);
     }
     
     public function bookdetail(Book $book)

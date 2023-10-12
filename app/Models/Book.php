@@ -20,6 +20,7 @@ class Book extends Model
         'pages',
         'reading_pages',
         'author_id',
+        'default_category_id',
     ];
     
     public function author()
@@ -29,5 +30,9 @@ class Book extends Model
     
     public function categories(){
         return $this->belongsToMany(Category::class);
+    }
+    
+    public function default_category(){
+        return $this->belongsTo(DefaultCategory::class);
     }
 }

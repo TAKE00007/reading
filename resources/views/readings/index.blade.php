@@ -32,6 +32,10 @@
                         <h2 class='title'>{{ $book->title }}</h2>
                         <p class='reading_pages'>{{ $book->reading_pages }}</p>
                         <p class='pages'>{{ $book->pages }}</p>
+                        @php
+                            $percentage = $book->reading_pages/$book->pages*100
+                        @endphp
+                        {{ $percentage }}%
                     </div>
             @endforeach
         </div>

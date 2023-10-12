@@ -25,6 +25,7 @@ class BookSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'author_id' => '1',
+            'default_category_id' => '1',
         ]);
     }
 }

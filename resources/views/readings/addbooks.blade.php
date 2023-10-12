@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <h1><a href="/">Reading</a></h1>
         <header>
             <nav>
                 <ul class="global-nav">
@@ -25,7 +26,7 @@
                 </ul>
             </nav>
         </header>
-        <h1>Reading</h1>
+        
         <form action="/books" method="BOOK">
             @csrf
             <div class="titile">

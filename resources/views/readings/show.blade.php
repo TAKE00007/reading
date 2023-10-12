@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <h1><a href="/">Reading</a></h1>
         <header>
             <nav>
                 <ul class="global-nav">

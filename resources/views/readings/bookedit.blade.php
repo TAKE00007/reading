@@ -37,6 +37,18 @@
                 <h2>ReadingPages</h2>
                 <input type='text' name='book[reading_pages]' value="{{ $book->reading_pages }}"/>
             </div>
+            <div class='default_category'>
+                <!--<h2>読書状態</h2>-->
+                <!--<select name="book[default_category_id]">-->
+                <!--   <div class='default_category'>-->
+                <h2>読書状態</h2>
+                <select name="book[default_category_id]">
+                    @foreach($default_categories as $default_category)
+                        <option value="{{ $default_category->id }}">{{ $default_category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            </div>
             <input type="submit" value="update"/>
         </form>
         <div class="footer">

@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Default_CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,9 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
 // mypageのRoute宣言はBookControllerの前で行う
 
 
-
+Route::controller(Default_CategoryController::class)->middleware(['auth'])->group(function(){
+    Route::get('/books/{book}/edit', 'edit')->name('edit');
+});
 
 Route::controller(BookController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
@@ -63,11 +66,13 @@ Route::controller(CategoryController::class)->middleware(['auth'])->group(functi
 });
 
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 
 /*Route::get('/posts', [PostController::class, 'posts']);

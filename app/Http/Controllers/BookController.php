@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use App\Models\Author;
+use App\Models\DefaultCategory;
 
 class BookController extends Controller
 {
@@ -51,10 +52,10 @@ class BookController extends Controller
         return view('readings.bookdetail')->with(['book' => $book]);
     }
     
-    public function edit(Book $book)
-    {
-        return view('readings.bookedit')->with(['book' => $book]);
-    }
+    // public function edit(Book $book)
+    // {
+    //      return view('readings.bookedit')->with(['book' => $book]);
+    // }
     
     public function update(BookRequest $request, Book $book)
     {
@@ -63,4 +64,14 @@ class BookController extends Controller
         
         return redirect('/books/' . $book->id);
     }
+    
+     public function edit(Book $book, DefaultCategory $default_category)
+    {
+         return view('readings.bookedit')->with(['book' => $book,'default_categories' => $default_category->get()]);
+    }
+    
+    // public function edit(Default_Category $default_category)
+    // {
+    //     return view('readings.bookedit')->with(['default_categories' => $default_category->get()]);
+    // }
 }

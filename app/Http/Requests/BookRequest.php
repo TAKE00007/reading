@@ -24,8 +24,9 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
-            'book.title' => 'required|string',
-            'book.reading_pages' => 'required|int',
+            'book.title' => 'required|string|max:40',
+            'book.reading_pages' => 'required|int|max:10000',
+            // その本のページ数を超えるとエラーがでるように
         ];
     }
 }

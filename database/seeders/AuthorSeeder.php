@@ -16,10 +16,17 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('authors')->insert([
+        DB::table('authors')->insert(
+            [
             'name' => '星野源',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-        ]);
+            ],
+            [
+            'name' => '大野智',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),    
+            ]
+        );
     }
 }

@@ -46,14 +46,15 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
 
 Route::controller(Default_CategoryController::class)->middleware(['auth'])->group(function(){
     Route::get('/books/{book}/edit', 'edit')->name('edit');
+    Route::get('/books/default_categories/{default_category}', 'bookshelves');
 });
 
 Route::controller(BookController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
     Route::get('/books/bookshelves', 'bookshelves')->name('bookshelves');
- 
-    Route::get('/books/add', 'addbooks')->name('addbooks');
     Route::get('/books', 'store')->name('store');
+    Route::get('/books/add', 'addbooks')->name('addbooks');
+    
     // Route::get('/books/{book}/edit')->name('edit');
     // Route::put('/books/{book}')->name('update'); 
     Route::get('/books/{book}', 'bookdetail')->name('bookdetail');

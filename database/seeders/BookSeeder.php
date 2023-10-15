@@ -16,7 +16,8 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('books')->insert([
+        DB::table('books')->insert(
+            [
             'title' => 'いのちの車窓から',
             'pages' => '200',
             /*'image_url' => 'title',*/
@@ -26,6 +27,18 @@ class BookSeeder extends Seeder
             'updated_at' => new DateTime(),
             'author_id' => '1',
             'default_category_id' => '1',
-        ]);
+            ],
+            [
+            'title' => 'arashi',
+            'pages' => '200',
+            /*'image_url' => 'title',*/
+            'reading_pages' => '100',
+            'month_progress' => '50',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'author_id' => '2',
+            'default_category_id' => '1',    
+            ]
+        );
     }
 }

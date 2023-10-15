@@ -12,7 +12,7 @@ class BookController extends Controller
 {
     public function index(Book $book)
     {
-        return view('readings.index')->with(['books' => $book->getByLimit()]);
+        return view('readings.index')->with(['books' => $book->getByBookLimit()]);
         //blade内で使う変数'books'と設定。'books'の中身にgetを使い、インスタンス化した$bookを代入。
     }
     
@@ -44,7 +44,7 @@ class BookController extends Controller
         // attacメソッドを使って中間テーブルにデータを保存
         $book->categories()->attach($input_categories);
         //フォームから入力された名前を取得
-        return redirect('/books/' . $book->id);
+        return redirect('books/' . $book->id);
     }
     
     public function bookdetail(Book $book)
@@ -65,10 +65,11 @@ class BookController extends Controller
         return redirect('/books/' . $book->id);
     }
     
-     public function edit(Book $book, DefaultCategory $default_category)
+    public function edit(Book $book, DefaultCategory $default_category)
     {
          return view('readings.bookedit')->with(['book' => $book,'default_categories' => $default_category->get()]);
     }
+    
     
     // public function edit(Default_Category $default_category)
     // {

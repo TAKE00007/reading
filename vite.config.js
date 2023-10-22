@@ -11,4 +11,12 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    
+    //jQueryを使用する
+    // resolve: {
+    //     alias: {
+    //         vue:'vue/dis/vue.esm-bundler.js',
+    //         '$':'jQuery',
+    //     },
+    // },
 });

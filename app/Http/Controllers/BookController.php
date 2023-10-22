@@ -57,8 +57,13 @@ class BookController extends Controller
     //      return view('readings.bookedit')->with(['book' => $book]);
     // }
     
-    public function update(BookRequest $request, Book $book)
+    public function update(Request $request, Book $book)
     {
+        
+        $validated = $request->validate([
+            'book.title' => 'required|string|max:40',
+            'book.reading_pages' => "required|integer|max:{$book->pages}",
+        ]);
         $input_book = $request['book'];
         $book->fill($input_book)->save();
         

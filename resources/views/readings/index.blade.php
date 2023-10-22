@@ -12,7 +12,7 @@
             <div class='books'>
                 @foreach ($books as $book)
                         <div class="text-center space-y-10">
-                            <h2 class="font-semibold text-9xl test-gray-800 leading-tight space-y-10">{{ $book->title }}</h2>
+                            <h2 class="font-semibold text-9xl test-gray-800 leading-tight space-y-10 m-2">{{ $book->title }}</h2>
                             
                             @php
                                 $percentage = $book->reading_pages/$book->pages*100
@@ -23,7 +23,9 @@
                         </div>
                 @endforeach
             </div>
-            <div class="edit"><a href="/books/{{ $book->id }}/edit">edit</a></div>
+            <div class="text-center">
+                <a class="bg-green-400 text-3xl text-white text-white text-center w-44 block mx-auto mb-3" href="/books/{{ $book->id }}/edit">edit</a>
+            </div>
         </body>
     </x-app-layout>
 </html>

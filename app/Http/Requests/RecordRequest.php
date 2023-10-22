@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BookRequest extends FormRequest
+class RecordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,8 @@ class BookRequest extends FormRequest
      */
     public function rules()
     {
-        
-        
         return [
-            'book.title' => 'required|string|max:40',
-            'book.reading_pages' => 'required|int|max:10000',
-            // その本のページ数を超えるとエラーがでるように
+            'record.goal' => 'required|int',
         ];
     }
 }

@@ -14,7 +14,7 @@ class Book extends Model
         return $this->with('author')->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
     
-     public function getByBookLimit(int $limit_count = 1)
+    public function getByBookLimit(int $limit_count = 1)
     {
         return $this->with('author')->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
@@ -24,6 +24,7 @@ class Book extends Model
         'title',
         'pages',
         'reading_pages',
+        'month_progress',
         'author_id',
         'default_category_id',
     ];

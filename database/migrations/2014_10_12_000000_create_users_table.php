@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             #$table->string('image_path',255);
-            $table->date('last_login_at')->nullable();
+            // $table->date('last_logout_year')->nullable();
+            $table->date('last_logout_at')->default(date('Y-m-d',strtotime("first day of this month")));
             $table->timestamps();
         });
     }

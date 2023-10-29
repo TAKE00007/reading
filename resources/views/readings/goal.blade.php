@@ -28,7 +28,7 @@
             <!--    </nav>-->
             <!--</header>-->
             <div text-center>
-            <form action="/books/{{ $record->id }}" method="POST">
+            <form action="/books/mypage/{{ $record->id }}" method="POST">
             @csrf
             @method('PUT')
                 <div class="p-5">

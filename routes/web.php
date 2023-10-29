@@ -41,7 +41,8 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 Route::controller(RecordController::class)->middleware(['auth'])->group(function(){
     Route::get('/books/mypage', 'mypage')->name('mypage');
     Route::put('/books/mypage/{record}', 'update')->name('update');
-    Route::get('/books/{record}/goal', 'goal')->name('goal');
+    // Route::get('/books/{record}/goal', 'goal')->name('goal');
+    Route::get('/books/mypage/{record}/goal', 'goal')->name('goal');
 });
 // mypageのRoute宣言はBookControllerの前で行う
 

@@ -44,7 +44,7 @@
                                 {{ $goal_percentage }} %
                         </meter>
                 @endforeach
-            <div class="goal"><a href="/books/{{ $record->id }}/goal">目標設定</a></div>
+            <div class="goal"><a href="/books/mypage/{{ $record->id }}/goal">目標設定</a></div>
             <div>
               <canvas id="bar_chart"></canvas>
             </div>
@@ -55,14 +55,18 @@
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             
             <script>
+              const data1 = @json($month_page);
+              const label1 = @json($month);
               const ctx = document.getElementById('bar_chart');
+              const data = [120, 130, 140];
+              console.log(data1,label1)
               
               new Chart(ctx, {
                 type: 'bar',
                 data: {
-                labels: ['9月', '10月', '11月'],
+                labels: label1,
                 datasets: [{
-                  data: [120, 130, 140],
+                  data: data1,
                 }]
                 },
                 options: {
@@ -74,9 +78,9 @@
               new Chart(cty, {
                 type: 'pie',
                 data: {
-                  labels: ['Red', 'Blue', 'Green'],
+                  labels: ['Red','green','blue'],
                   datasets: [{
-                    data: [12, 19, 3],
+                    data: data,
                   }]
                 },
                 options: {

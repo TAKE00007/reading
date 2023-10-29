@@ -28,25 +28,31 @@
             <!--    </nav>-->
             <!--</header>-->
             
-            <div class="text-center">
+            <div class="flex flex-row flex-wrap">
                 @foreach ($books as $book)
-                        <div class='bookshelves'>
-                            <h2 class="font-semibold text-gray-800" >
-                                <a href="/books/{{ $book->id }}">{{ $book->title }}</a>
+                        <div class='basis-1/4 ml-12 my-12'>
+                            <h2 class="font-semibold text-gray-800 text-center" >
+                                <a href="/books/{{ $book->id }}/">{{ $book->title }}</a>
                             </h2>
-                            <p class='reading_pages'>読んだページ:{{ $book->reading_pages }}</p>
-                            <p class='pages'>ページ数:{{ $book->pages }}</p>
-                            <p class='author'>著者:{{ $book->author->name }}</p>
+                            <img class="display:block m-auto w-3/12 " src="/book_icon.png">
+                            
+                            <p class='text-center'>{{ $book->author->name }}</p>
+                            @php
+                                $percentage = $book->reading_pages/$book->pages*100
+                            @endphp
+                            <meter class="w-2/6 h-5 m-auto" min="0" max="100" optimum = "100" value="{{ $percentage }}">
+                                {{ $percentage }} %
+                            </meter>
+                            
+                            <a href="/books/default_categories/{{ $book->default_category->id }}">{{ $book->default_category->name }}</a>
+                            <div class='category'>
+                                @foreach($book->categories as $category)
+                                {{ $category->name }}
+                                @endforeach
+                            </div>
+                            <button class="bg-green-400 text-white"><a href="/books/{{ $book->id }}/edit">edit</a></button>
                         </div>
-                        <a href="/books/default_categories/{{ $book->default_category->id }}">{{ $book->default_category->name }}</a>
-                        <div class='category'>
-                            @foreach($book->categories as $category)
-                            {{ $category->name }}
-                            @endforeach
-                        </div>
-                        <button class="bg-green-400 text-white"><a href="/books/{{ $book->id }}/edit">edit</a></button>
                 @endforeach
-            </div>
         </body>
     </x-app-layout>
     

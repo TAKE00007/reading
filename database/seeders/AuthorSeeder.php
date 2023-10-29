@@ -21,7 +21,8 @@ class AuthorSeeder extends Seeder
             'name' => '星野源',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            ],
+            ]);
+        DB::table('authors')->insert(
             [
             'name' => '大野智',
             'created_at' => new DateTime(),

@@ -23,7 +23,6 @@ class UserSeeder extends Seeder
             'email_verified_at' => new DateTime(),
             'password' => Hash::make('testuser'),
             #'image_path' => '11',
-            'last_login_at' => new DateTime(),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);

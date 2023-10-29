@@ -28,17 +28,24 @@
             <!--    </nav>-->
             <!--</header>-->
             
-            <div class="text-center bg-white">
+            <div class="text-center bg-white p-0 overflow-hidden m-5 divide-y divide-slate-200">
                 @foreach ($posts as $post)
-                        <div class='post'>
-                            <h2 class="font-semibold text-slate-800 text-xl my-100">{{ $post->title }}</h2>
-                            <p class="font-semibold text-slate-800 my-100">{{ $post->body }}</p>
-                            <p class='created_at'>{{ $post->created_at }}</p>
+                        <div class='box'>
+                            <a href="/posts/{{ $post->id }}/edit">
+                            <h2 class="font-semibold text-left text-slate-800 text-5xl my-100 pt-6">{{ $post->title }}</h2>
+                            </a>
+                            <p class="font-semibold text-left text-slate-800 text-xl my-100 pt-6">{{ $post->body }}</p>
+                            <div class="flex m-5 space-x-96">
+                                <p class="text-rose-400 w-1/2">good!</p>
+                                <p class='w-1/2'>{{ $post->created_at }}</p>
+                            </div>
+                            
                         </div>
-                        <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></divs>
                 @endforeach
             </div>
-            <a href='/posts/create'>post</a>
+            <div class="text-center ">
+                <a href='/posts/create'>post</a>
+            </div>
         </body>
     </x-app-layout>
 </html>

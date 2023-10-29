@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->integer('month_page');
+            $table->integer('month_page')->default(0);
             $table->date('month')->nullable(false);
-            $table->integer('goal')->nullable(false);
-            $table->integer('progress')->nullable(false);
+            $table->integer('goal')->default(100);
             $table->timestamps();
         });
     }

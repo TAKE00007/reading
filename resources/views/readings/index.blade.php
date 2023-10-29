@@ -9,15 +9,15 @@
     </head>
     <x-app-layout>
         <body>
-            <div class='books'>
+            <div class='pt-10'>
                 @foreach ($books as $book)
                         <div class="text-center space-y-10">
                             <h2 class="font-semibold text-9xl test-gray-800 leading-tight space-y-10 m-2">{{ $book->title }}</h2>
-                            
+                            <img class="display:block m-auto w-3/12 " src="/book_icon.png">
                             @php
                                 $percentage = $book->reading_pages/$book->pages*100
                             @endphp
-                            <meter class="w-5/6 h-52" min="0" max="100" optimum = "100" value="{{ $percentage }}">
+                            <meter class="w-1/2 h-16 rounded-none" min="0" max="100" optimum = "100" value="{{ $percentage }}">
                                 {{ $percentage }} %
                             </meter>
                         </div>

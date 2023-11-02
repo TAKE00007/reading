@@ -28,32 +28,67 @@
             <!--    </nav>-->
             <!--</header>-->
             
-            <div class="flex flex-row flex-wrap">
-                @foreach ($books as $book)
-                        <div class='basis-1/4 ml-12 my-12'>
-                            <h2 class="font-semibold text-gray-800 text-center" >
-                                <a href="/books/{{ $book->id }}/">{{ $book->title }}</a>
+            <div class="flex flex-col flex-wrap divide-y divide-slate-200">
+                <div class="flex flex-row flex-wrap">
+                    <p>未読</p>
+                    @foreach ($book_unreads as $book_unread)
+                        <div class='basis-1/5  my-12 text-center'>
+                            <h2 class="font-semibold text-gray-800 text-2xl underline decoration-solid" >
+                                <a href="/books/{{ $book_unread->id }}/edit">{{ $book_unread->title }}</a>
                             </h2>
-                            <img class="display:block m-auto w-3/12 " src="/book_icon.png">
-                            
-                            <p class='text-center'>{{ $book->author->name }}</p>
+                            <img class="mx-auto w-3/12 " src="/book_icon.png">
+                            <p class='author'>{{ $book_unread->author->name }}</p>
                             @php
-                                $percentage = $book->reading_pages/$book->pages*100
+                                $percentage = $book_unread->reading_pages/$book_unread->pages*100
+                            @endphp
+                            <meter class="w-2/6 h-5" min="0" max="100" optimum = "100" value="{{ $percentage }}">
+                                {{ $percentage }} %
+                            </meter>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="flex flex-row flex-wrap">
+                    <p>読み途中</p>
+                    @foreach ($book_reads as $book_read)
+                        <div class='basis-1/5 text-center my-12'>
+                            <h2 class="font-semibold text-gray-800 text-2xl underline decoration-solid" >
+                                <a href="/books/{{ $book_read->id }}/edit">{{ $book_read->title }}</a>
+                            </h2>
+                            <img class="display:block w-3/12 mx-auto " src="/book_icon.png">
+                            
+                            <p class='author'>{{ $book_read->author->name }}</p>
+                            @php
+                                $percentage = $book_read->reading_pages/$book_read->pages*100
                             @endphp
                             <meter class="w-2/6 h-5 m-auto" min="0" max="100" optimum = "100" value="{{ $percentage }}">
                                 {{ $percentage }} %
                             </meter>
-                            
-                            <a href="/books/default_categories/{{ $book->default_category->id }}">{{ $book->default_category->name }}</a>
-                            <div class='category'>
-                                @foreach($book->categories as $category)
-                                {{ $category->name }}
-                                @endforeach
-                            </div>
-                            <button class="bg-green-400 text-white"><a href="/books/{{ $book->id }}/edit">edit</a></button>
                         </div>
-                @endforeach
+                    @endforeach
+                </div>
+                <div class="flex flex-row flex-wrap">
+                    <p>既読</p>
+                    @foreach ($book_completes as $book_complete)
+                        <div class='basis-1/5 text-center my-12'>
+                            <h2 class="font-semibold text-gray-800 text-2xl underline decoration-solid" >
+                                <a href="/books/{{ $book_complete->id }}/edit">{{ $book_complete->title }}</a>
+                            </h2>
+                            <img class="display:block w-3/12 mx-auto" src="/book_icon.png">
+                            <p class='author'>{{ $book_complete->author->name }}</p>
+                            @php
+                                $percentage = $book_complete->reading_pages/$book_complete->pages*100
+                            @endphp
+                            <meter class="w-2/6 h-5 m-auto" min="0" max="100" optimum = "100" value="{{ $percentage }}">
+                                {{ $percentage }} %
+                            </meter>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </body>
     </x-app-layout>
     
 </html>
+
+<!--bootableの中からdefaultcategoryidが未読のもののみを持ってくるwhere文
+withで持ってくる-->

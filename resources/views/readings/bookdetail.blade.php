@@ -27,17 +27,8 @@
         <!--        </ul>-->
         <!--    </nav>-->
         <!--</header>-->
-            <h1 class="book_title">
-                {{ $book->title }}
-            </h1>
-            <div class='book_detail'>
-                <div class="reading_page">
-                    <h3>本文</h3>
-                    <p>{{ $book->reading_pages }}</p>
-                </div>
-            </div>
-            <div class="footer">
-                <a href="/books/bookshelves">戻る</a>
+            <div class="text-5xl text-center my-64 underline decoration-solid">
+                <a href="/books/bookshelves">{{ $book->title }}</a></a>
             </div>
         </body> 
     </x-app-layout>

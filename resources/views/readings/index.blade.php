@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    
     <head>
         <meta charset="utf-8">
         <title>Reading</title>
@@ -9,6 +10,7 @@
     </head>
     <x-app-layout>
         <body>
+        @csrf
             <div class='pt-10'>
                 @foreach ($books as $book)
                         <div class="text-center space-y-10">
@@ -17,14 +19,14 @@
                             @php
                                 $percentage = $book->reading_pages/$book->pages*100
                             @endphp
-                            <meter class="w-1/2 h-16 rounded-none" min="0" max="100" optimum = "100" value="{{ $percentage }}">
+                            <meter class="w-1/2 h-24 rounded-none" min="0" max="100" optimum = "100" value="{{ $percentage }}">
                                 {{ $percentage }} %
                             </meter>
                         </div>
                 @endforeach
             </div>
             <div class="text-center">
-                <a class="bg-green-400 text-3xl text-white text-white text-center w-44 block mx-auto mb-3" href="/books/{{ $book->id }}/edit">edit</a>
+                <a class="bg-sky-500 hover-bg-sky-800 text-3xl text-white text-white text-center w-44 block mx-auto mb-3" href="/books/{{ $book->id }}/edit">edit</a>
             </div>
         </body>
     </x-app-layout>

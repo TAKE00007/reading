@@ -33,13 +33,60 @@ class BookSeeder extends Seeder
             'title' => 'arashi',
             'pages' => '200',
             /*'image_url' => 'title',*/
-            'reading_pages' => '100',
+            'reading_pages' => '50',
             'month_progress' => '50',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'author_id' => '2',
             'default_category_id' => '1',    
-            ]
-        );
+            ]);
+        DB::table('books')->insert(    
+            [
+            'title' => '虹',
+            'pages' => '200',
+            /*'image_url' => 'title',*/
+            'reading_pages' => '50',
+            'month_progress' => '50',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'author_id' => '2',
+            'default_category_id' => '2',    
+            ]);
+        DB::table('books')->insert(    
+            [
+            'title' => '暁',
+            'pages' => '200',
+            /*'image_url' => 'title',*/
+            'reading_pages' => '50',
+            'month_progress' => '50',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'author_id' => '2',
+            'default_category_id' => '2',    
+            ]);
+        DB::table('books')->insert(    
+            [
+            'title' => 'OnePiece',
+            'pages' => '200',
+            /*'image_url' => 'title',*/
+            'reading_pages' => '50',
+            'month_progress' => '50',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'author_id' => '2',
+            'default_category_id' => '3',    
+            ]);
+        DB::table('books')->insert(    
+            [
+            'title' => 'フィルム',
+            'pages' => '200',
+            /*'image_url' => 'title',*/
+            'reading_pages' => '50',
+            'month_progress' => '50',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'author_id' => '1',
+            'default_category_id' => '3',    
+            ]);
     }
 }

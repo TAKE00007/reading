@@ -20,7 +20,17 @@ class BookController extends Controller
     
     public function bookshelves(Book $book, Author $author)
     {
-        return view('readings.bookshelves')->with(['books' => $book->getByLimit(),'authors' => $author->get()]);
+        // $book_unread = [];
+        // // 未読
+        // $book_read = [];
+        // // 読み途中
+        // $book_coplete = [];
+        // // 既読
+        $book_unreads = $book->where('default_category_id','1')->get();
+        $book_reads = $book->where('default_category_id', '2')->get();
+        $book_completes = $book->where('default_category_id', '3')->get();
+        
+        return view('readings.bookshelves')->with(['book_unreads' => $book_unreads,'book_reads' => $book_reads, 'book_completes' => $book_completes, 'books' => $book->getByLimit(),'authors' => $author->get()]);
         //blade内で使う変数'books'と設定。'books'の中身にgetを使い、インスタンス化した$bookを代入。
     }
     
@@ -66,7 +76,7 @@ class BookController extends Controller
             'book.reading_pages' => "required|integer|max:{$book->pages}",
         ]);
         $input = $request['book'];
-        
+        // dd($input);
         // $book->fill($input_book)->save();
         // 各月毎の本の集計
         // if
@@ -74,6 +84,7 @@ class BookController extends Controller
         $diff_pages = $input['reading_pages'] - $book->reading_pages;
         // dd($diff_pages);
         $book->reading_pages = $input['reading_pages'];
+        $book->default_category_id = $input['default_category_id'];
         $date = date('Y-m-d',strtotime("first day of this month"));
         // 月初を取得
         $logout_date = Auth::user()->last_logout_at;

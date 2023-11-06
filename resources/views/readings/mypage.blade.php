@@ -40,9 +40,9 @@
                         @php
                             $goal_percentage = $record->progress/$record->goal*100
                         @endphp
-                        <meter class="w-5/6 h-52" min="0" max="100" optimum = "100" value="{{ $goal_percentage }}">
-                                {{ $goal_percentage }} %
-                        </meter>
+                        <!--<meter class="w-5/6 h-52" min="0" max="100" optimum = "100" value="{{ $goal_percentage }}">-->
+                        <!--        {{ $goal_percentage }} %-->
+                        <!--</meter>-->
                 @endforeach
             <div class="goal"><a href="/books/mypage/{{ $record->id }}/goal">目標設定</a></div>
             <div>

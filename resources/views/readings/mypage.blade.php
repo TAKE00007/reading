@@ -73,19 +73,19 @@
                 }
               });
               
-              const cty = document.getElementById('myChart');
+              // const cty = document.getElementById('myChart');
             
-              new Chart(cty, {
-                type: 'pie',
-                data: {
-                  labels: ['Red','green','blue'],
-                  datasets: [{
-                    data: data,
-                  }]
-                },
-                options: {
-                }
-              });
+              // new Chart(cty, {
+              //   type: 'pie',
+              //   data: {
+              //     labels: ['Red','green','blue'],
+              //     datasets: [{
+              //       data: data,
+              //     }]
+              //   },
+              //   options: {
+              //   }
+              // });
             </script>
             
             

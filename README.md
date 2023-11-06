@@ -1,4 +1,4 @@
-<p align="right"><a href="https://book-readings-eeafac2557e6.herokuapp.com/login" target="_blank"><img src="/logo.png"></a></p>
+<p align="right"><a href="https://book-readings-eeafac2557e6.herokuapp.com/login" target="_blank"><img src="/reading/public/logo.png"></a></p>
 
 
 <p align="center"><b>ロゴをクリック</b></p>
@@ -6,7 +6,7 @@
 <p align="center"><a href="https://book-readings-eeafac2557e6.herokuapp.com/login" target="_blank"></a></p>
 <h1 align="center">Reading</h1>
 
-##ログイン
+##　ログイン
 Email testuser@gmail.com <br><br>
 Password testuser <br><br>
 
@@ -43,4 +43,4 @@ Readingは以下に示すポイントに根差して設計されています．
 
 ##  データ構成
 <b>「テーブル構成・リレーション」と「テーブル包含関係」：</b><br>
-<img src="/table.png" width="225">
+<img src="/reading/public/teble.png" width="225">
